@@ -37,10 +37,6 @@ myApp.controller('PharmacyController',
           }); //promise
         } //addDrug
 
-        $scope.editpharmacy = function(){
-            
-        }
-
 
         $scope.deleteDrug = function(key) {
           pharmacyInfo.$remove(key);
