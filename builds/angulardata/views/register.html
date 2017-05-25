@@ -1,0 +1,67 @@
+<section class="card register">
+  <form name="myform"
+    ng-submit="register()"
+    novalidate>
+
+    <div class="textintro">
+      <h1>Register your pharmacy</h1>
+      <p></p>
+      <p class="message" ng-show="message">{{ message }}</p>
+    </div>
+
+    <fieldset>
+
+      <input type="text" name="pharamcyname" placeholder="Pharamcy Name"
+      ng-model="user.pharamcyname" ng-required="true">
+      <p class="error validationerror"
+      ng-show="myform.pharamcyname.$invalid && myform.pharamcyname.$touched">
+      Pharamcy Name name required</p>
+
+
+      <input type="text" name="fullname" placeholder="Full Name"
+      ng-model="user.fullname" ng-required="true">
+      <p class="error validationerror"
+      ng-show="myform.fullname.$invalid && myform.fullname.$touched">
+      Full Name required</p>
+
+
+      <input type="text" name="telephone" placeholder="Telephone Number"
+      ng-model="user.telephone" ng-required="true">
+      <p class="error validationerror"
+      ng-show="myform.telephone.$invalid && myform.telephone.$touched">
+      Telephone Name required</p>
+
+      <input type="text" name="address" placeholder="Address"
+      ng-model="user.address" ng-required="true">
+      <p class="error validationerror"
+      ng-show="myform.address.$invalid && myform.address.$touched">
+      Address required</p>
+
+      <input type="text" name="openhours" placeholder="Open hours (10 am to 11pm)"
+      ng-model="user.openhours" ng-required="true">
+      <p class="error validationerror"
+      ng-show="myform.openhours.$invalid && myform.openhours.$touched">
+      Open hours required</p>
+
+      <input type="email" name="email" placeholder="Email"
+      ng-model="user.email" ng-required="true">
+      <p class="error validationerror"
+      ng-show="myform.email.$invalid && myform.email.$touched">
+      Must be a valid email</p>
+
+      <input type="password" name="password" placeholder="Password"
+      ng-model="user.password" ng-required="true">
+      <p class="error validationerror"
+      ng-show="myform.password.$invalid && myform.email.$touched">
+      Password is required</p>
+
+      <input type="hidden" name="ifadmin" ng-model="user.isadmin" ng-value="1" />
+      
+      
+    </fieldset>
+
+    <button type="submit" class="btn"
+    ng-disabled="myform.$invalid">Register</button>
+    <p>or <a ng-href="#/login">login</a></p>
+  </form>
+</section>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Meds2u</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css">
+  
+  <script src="js/lib/angular/angular.min.js"></script>
+  <script src="js/lib/angular/angular-route.min.js"></script>
+  <script src="js/lib/angular/angular-animate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+<script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDkmogvIN9b7ISr2N3Z1_0wP9-bjCsSv9c",
+    authDomain: "meds2uapp.firebaseapp.com",
+    databaseURL: "https://meds2uapp.firebaseio.com",
+    projectId: "meds2uapp",
+    storageBucket: "meds2uapp.appspot.com",
+    messagingSenderId: "24277128769"
+  };
+  firebase.initializeApp(config);
+</script>
+
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpjvFNeX3IeOubKcAPIxLbt-0QjmGEL6c"></script>
+ <script>
+    function myMap() {
+    var mapProp= {
+        center:new google.maps.LatLng(6.458985,3.601521),
+        zoom:5,
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+    </script>
+</div>
+  <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/services/authentication.js"></script>
+  <script src="js/controllers/registration.js"></script>
+  <script src="js/controllers/meetings.js"></script>
+  <script src="js/controllers/checkins.js"></script>
+  <script src="js/controllers/profile.js"></script>
+  <script src="js/controllers/pharmacy.js"></script>
+
+</head>
+<body>
+<header>
+  <nav class="cf" ng-include="'views/nav.html'"></nav>
+</header>
+<div class="page">
+
+  <div class="userinfo" ng-show="currentUser" ng-controller="RegistrationController">
+    <span class="userinfo">Hi {{currentUser.name}}</span>
+    <a ng-href="#/login" ng-click="logout()">logout</a>
+  </div>
+
+  <main class="cf" ng-view>
+  </main>
+</div>
+</body>
+</html>

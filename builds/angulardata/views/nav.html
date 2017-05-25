@@ -1,0 +1,10 @@
+  <div class="branding"><a ng-href="#/">Meds2u</a></div>
+  <ul>
+    <li><a ng-show="currentUser" ng-href="#/meetings">Drugs
+      <span ng-show="howManyDrugs" class="badge">{{howManyDrugs}}</span></a>
+    </li>
+    <li><a ng-show="loggedIn" ng-href="#/addpharmacy">Pharmacy</a></li>
+    <li><a ng-show="loggedIn" ng-href="#/profile">Profile</a></li>
+    <li><a ng-hide="currentUser" ng-href="#/login">Login</a></li>
+    <li><a ng-hide="currentUser" ng-href="#/register">Register</a></li>
+  </ul>

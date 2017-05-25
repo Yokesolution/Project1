@@ -1,0 +1,106 @@
+<div class="card meetings cf">
+  <div class="textintro">
+    <h1>Add Drugs</h1>
+    <p>Add drugs Details and hit +</p>
+    <form class="formgroup addmeeting cf"
+      name="myform"
+      ng-submit="addDrug()"
+      novalidate>
+      <div class="inputwrapper">
+        <input type="text" name="drugname"
+          placeholder="Drugs Name"
+          ng-model="drugname" ng-required="true">
+      </div>
+      <p>Add brand name</p>
+      <div class="inputwrapper">
+        <input type="text" name="genericname"
+          placeholder="Emezon, fensil"
+          ng-model="genericname">
+      </div>
+      <div class="inputwrapper">
+        <input type="text" name="drugstrength"
+          placeholder="500mg"
+          ng-model="drugstrength">
+      </div>
+
+      <div class="inputwrapper">
+      <select name="drugcategory" ng-model="drugcategory" id="soflow">
+        <option value="">Select Drug category </option>
+        <option value="stimulants">Stimulants</option>
+        <option value="antidepressants">Antidepressants</option>
+        <option value="barbiturates">Barbiturates</option>
+        <option value="depressants">Depressants</option>
+        <option value="cannabis">Cannabis</option>
+        <option value="narcotics">Narcotics</option>
+        <option value="hallucinogens">Hallucinogens</option>
+        <option value="inhalants">Inhalants</option>
+      </select>
+    </div>
+      <button type="submit" class="btn"
+       ng-disabled="myform.$invalid">+</button>
+    </form>
+</div><!-- meetings cf -->
+
+<div class="container drugbody">
+    <div class="drugstbl">
+        <div class="col-md-8">
+
+            <div class="panel panel-default panel-table">
+              <div class="panel-heading">
+                <div class="container">
+                  <div class="col col-xs-6">
+                    <h3 class="panel-title">Drugs Listing</h3>
+                  </div>
+            
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list">
+                  <thead>
+                    <tr>
+                        <th><em class="fa fa-cog"></em></th>
+                        <th>Generic Name</th>
+                        <th>Brand Name</th>
+                        <th>Drug Strength</th>
+                    </tr> 
+                  </thead>
+
+                  <tbody>
+                          <tr ng-repeat="(key, drug) in drugs">
+                            <td align="center">
+                              <button class="btn btn-delete"
+                                ng-click="deleteDrug(key)">
+                              </button>
+                        
+                            </td>
+                            <td class="hidden-xs">{{drug.name}}</td>
+                            <td>{{drug.genericname}}</td>
+                            <td>{{drug.drugstrength}}</td>
+                          </tr>
+                        </tbody>
+                </table>
+            
+              </div>
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col col-xs-4">Number of Drugs {{howManyDrugs}}
+                  </div>
+                  <div class="col col-xs-8">
+                <!---    <ul class="pagination hidden-xs pull-right">
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                    </ul>
+                    <ul class="pagination visible-xs pull-right">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                  -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+</div></div></div>
